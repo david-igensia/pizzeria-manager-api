@@ -35,7 +35,7 @@ public class IngredientController {
     @GetMapping("{id}")
     public ResponseEntity get(@PathVariable Long id){
         if (!service.exist(id)) {
-            return new ResponseEntity("L'ingredient" + id + "N'existe pas",
+            return new ResponseEntity("l'ingrédient " + id + " N'existe pas",
                    HttpStatusCode.valueOf(404));
         }
         return new ResponseEntity(service.get(id), HttpStatusCode.valueOf(200));
@@ -44,16 +44,15 @@ public class IngredientController {
     @DeleteMapping("{id}")
     public ResponseEntity supprimer(@PathVariable Long id) {
         if (!service.exist(id)) {
-            return new ResponseEntity("L'ingredient" + id + "n'existe pas",
+            return new ResponseEntity("ingredient "  + id +  " n'existe pas",
                     HttpStatusCode.valueOf(404));
         }
         if (service.estUtilise(id)) {
-            return new ResponseEntity("Impossible : l'ingredient" + id +
-                        "est utiliser dans au moins une pizza",
+            return new ResponseEntity("Impossible : l'ingrédient " + id + " est utilisé dans au moins une pizza",
                     HttpStatusCode.valueOf(409));
         }
         service.supprimer(id);
-        return new ResponseEntity("Ingredient" + id + "supprime",
+        return new ResponseEntity("Ingredient " + id + " supprime",
                 HttpStatusCode.valueOf(200));
     }
 }

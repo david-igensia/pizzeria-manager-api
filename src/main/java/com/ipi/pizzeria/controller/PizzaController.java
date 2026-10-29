@@ -56,13 +56,13 @@ public class PizzaController {
         return new ResponseEntity(service.getFinancier(id), HttpStatusCode.valueOf(200));
 
     }
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity supprimer(@PathVariable Long id) {
         if (!service.exist(id)) {
-            return new ResponseEntity("La pizza" + id + "n'est pas", HttpStatusCode.valueOf(404));
+            return new ResponseEntity("La pizza " + id + " n'existe pas", HttpStatusCode.valueOf(404));
 
         }
         service.supprimer(id);
-        return new ResponseEntity("Pizza" + id + "supprimer", HttpStatusCode.valueOf(200));
+        return new ResponseEntity("Pizza " + id + " supprimer", HttpStatusCode.valueOf(200));
     }
 }
