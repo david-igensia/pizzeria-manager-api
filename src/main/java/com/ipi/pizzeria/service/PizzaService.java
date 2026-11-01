@@ -1,6 +1,6 @@
 package com.ipi.pizzeria.service;
 
-import com.ipi.pizzeria.dto.*;                         // tous les DTO d'un coup
+import com.ipi.pizzeria.dto.*;
 import com.ipi.pizzeria.entity.IngredientEntity;
 import com.ipi.pizzeria.entity.PizzaEntity;
 import com.ipi.pizzeria.repository.IngredientRepository;
